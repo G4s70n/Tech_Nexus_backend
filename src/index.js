@@ -1,5 +1,5 @@
-const server = require("./src/app");
-const { conn } = require("./src/db");
+const server = require("./app'");
+const { conn } = require("./db");
 
 
 //server.listen port
