@@ -7,7 +7,7 @@ const findDb = async () => {
   const foundData = await Product.findAll({ include: { all: true } });
   return foundData;
 }
-  const findAllApi = async (title) => {
+/*   const findAllApi = async (title) => {
     const foundData = await Product.findAll({ include: { all: true } }); 
     
     if(foundData.length === 0)   {       
@@ -34,17 +34,17 @@ const findDb = async () => {
       return productFoundOnDb;
     }
     return foundData;
-  }
-/* const findAllApi = async () => {
+  } */
+ const findAllApi = async () => {
   const existingData = await findDb(); // Verifica si hay datos cargados en la base de datos
 
   if (existingData.length === 0) {
     // No hay datos en la base de datos, cargar desde la API
-    // const URL = "https://api.mercadolibre.com/sites/MLA/search?category=";
-    // const ids = [
-    //   // ... lista de IDs de marcas
-    //   "MLA1648&BRAND=49944", //HP
-    // ].map((marca) => URL + marca);
+     const URL = "https://api.mercadolibre.com/sites/MLA/search?category=";
+     const ids = [
+       // ... lista de IDs de marcas
+       "MLA1648&BRAND=49944", //HP
+     ].map((marca) => URL + marca);
 
     const apiUrl = await Promise.all(
       ids.map(async (ruta) => {
@@ -76,7 +76,7 @@ const findDb = async () => {
 
   let dataDb = await Product.findAll({ include: { all: true } });
   return dataDb;
-}; */
+}; 
 
 const findCategoryDB = async () => {
   const searchCategory = await Category.findAll({ include: { all: true } });
